@@ -19,7 +19,7 @@
 --Paramètres
 DECLARE @query varchar(5000)
 DECLARE @spAnonymiseDonnees nvarchar(255)			= 'dbo.sp_AnonymiseDonnees'													-- Nom de la procédure stockée d'anonymisation des valeurs
-DECLARE @sourceDatabaseLogicalName varchar(255)		= 'TODO_TableOrigine'																	-- Logical name of the DB ( check DB properties / Files tab )
+DECLARE @sourceDatabaseLogicalName varchar(255)		= 'TODO_BaseOrigine'																	-- Logical name of the DB ( check DB properties / Files tab )
 DECLARE @sourceDatabaseLogicalNameLog varchar(255)	= @sourceDatabaseLogicalName + '_log'										-- Logical name of the DB ( check DB properties / Files tab )
 DECLARE @sourceDatabaseName as varchar(255)			= @sourceDatabaseLogicalName												-- Name of the source database
 DECLARE @sourceBackupFile varchar(2000)				= 'B:\SQL Server\Anonymisation\' + @sourceDatabaseLogicalName + '.bak'		-- FileName of the backup file
