@@ -17,10 +17,10 @@ REM Placement dans répertoire local du script car l'exécution via le raccourci
 pushd "%~dp0"
 
 REM Parametrage
-set sqlInstance=.\MSSQL2022
+set sqlInstance=[TODO_NomInstance]
 set sqlUsername=sa
-set sqlPassword=TODO_MotDePasse
-set dbName=TODO_NomDbOrigne
+set sqlPassword=[TODO_MotDePasse]
+set dbName=[TODO_NomDbOrigne]
 set certificatePath=PartenaireCertificate.pfx
 
 REM Calcul date logs
