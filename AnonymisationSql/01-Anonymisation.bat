@@ -22,6 +22,7 @@ set sqlUsername=sa
 set sqlPassword=[TODO_MotDePasse]
 set dbName=[TODO_NomDbOrigne]
 set certificatePath=PartenaireCertificate.pfx
+set startTime=%time%
 
 REM Calcul date logs
 set dt=%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%_%TIME:~0,2%-%TIME:~3,2%-%TIME:~6,2%
@@ -87,6 +88,8 @@ echo.
 echo ==================================================================================
 echo [102m [102m Anonymisation de la base effectuee avec succes [0m
 echo [92m Error code : %error% [0m
+echo Heure Debut : %startTime%
+echo Heure fin: %time%
 echo ==================================================================================
 pause
 exit
@@ -98,6 +101,8 @@ echo.
 echo ==================================================================================
 echo [101;93m ERREUR : Une erreur s'est produite ! Echec de l'anonymisation [0m
 echo [91m Error code : %error% [0m
+echo Heure Debut : %startTime%
+echo Heure fin: %time%
 echo ==================================================================================
 pause
 exit
