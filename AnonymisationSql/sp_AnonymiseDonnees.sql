@@ -121,6 +121,7 @@ BEGIN
 	inner join sys.all_columns ac on sc.major_id = ac.object_id and sc.minor_id = ac.column_id
 	inner join information_schema.columns co ON co.TABLE_SCHEMA = SCHEMA_NAME(ao.schema_id) AND co.TABLE_NAME = ao.name AND co.COLUMN_NAME = ac.name
 	where co.TABLE_CATALOG = DB_NAME()
+	and [Label] <> 'Public' --Champ revu mais autorisé en public donc exclu de l'anonymisation
 	order by TableFullNameOrigin, ColumnName;
 
 	--Vérificaton qu'il y a au moins une colonne à anonymiser, le cas échéant c'est probablement une erreur
