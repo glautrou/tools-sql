@@ -18,6 +18,7 @@ DECLARE cur_ForEachColumn CURSOR LOCAL FAST_FORWARD FOR
 	from  sys.all_objects ao
 	inner join sys.all_columns ac on ac.object_id = ao.object_id
 	where SCHEMA_NAME(ao.schema_id) = 'dbo'
+	and type = 'U' --Table utilisateur seulement
 	and ac.is_computed = 0
 
 	except
@@ -38,6 +39,7 @@ WHILE @@FETCH_STATUS = 0
 BEGIN 
 
 	SET @sql = 'ADD SENSITIVITY CLASSIFICATION TO [' + @valeurSchema + '].[' + @valeurTable + '].[' + @valeurColumn + '] WITH (label = ''Public'', label_id = ''1866ca45-1973-4c28-9d12-04d407f147ad'', rank = None);'
+	PRINT @sql
 	EXEC sp_executesql @sql
 
 FETCH NEXT FROM cur_ForEachColumn INTO @valeurSchema, @valeurTable, @valeurColumn
