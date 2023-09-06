@@ -120,7 +120,7 @@ BEGIN
 	inner join sys.all_objects ao on sc.major_id = ao.object_id
 	inner join sys.all_columns ac on sc.major_id = ac.object_id and sc.minor_id = ac.column_id
 	inner join information_schema.columns co ON co.TABLE_SCHEMA = SCHEMA_NAME(ao.schema_id) AND co.TABLE_NAME = ao.name AND co.COLUMN_NAME = ac.name
-	where co.TABLE_CATALOG = DB_NAME()
+	where co.TABLE_CATALOG = @targetDbName --Se baser sur target et non pas original (ou encore DB_NAME()) pour gérer le cas où certaines tables sont supprimées en amont de l'anonymisation
 	and [Label] <> 'Public' --Champ revu mais autorisé en public donc exclu de l'anonymisation
 	order by TableFullNameOrigin, ColumnName;
 
