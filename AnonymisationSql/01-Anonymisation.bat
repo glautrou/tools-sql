@@ -49,7 +49,7 @@ REM Affichage output
 echo Logs sp_AnonymiseDonnees.sql :
 type "%logFile%"
 REM Gestion erreurs
-findstr /m "Msg ERREUR" "%logFile%" >Nul
+findstr /m "Msg Message ERREUR" "%logFile%" >Nul
 if %errorlevel%==0 (goto errorScript)
 if NOT %error% == 0 (goto errorScript)
 
